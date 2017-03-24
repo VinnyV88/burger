@@ -10,7 +10,7 @@
           <label class="col-md-8 burger-name" for="devoured">{{this.burger_name}} </label>
           <div class="col-md-4">
             <input type="hidden" name="devoured" value="true">
-            <button class="btn btn-warning" type="submit">EAT!</button>
+            <button class="btn btn-warning eat-burger" type="submit">EAT!</button>
           </div>
         </form>
       </li>
@@ -21,11 +21,14 @@
     {{!--new burger submit--}}
     <h4>Add Burger to Menu</h4>
     <hr>
-    <form action="/burgers/create" method="POST">
+    <form action="/burgers/create" method="POST" role="form" data-toggle="validator">
       <div class="form-group text-right">
-        <input type="text" class="form-control" id="burger" name="burger">
+        <input type="text" class="form-control" id="burger" name="burger" required data-error="Burger name is required.">
+        <div class="help-block with-errors"></div>
         <br>
-        <button type="submit" class="btn btn-danger">Add Burger</button>
+        <div class="form-group">
+          <button type="submit" class="btn btn-danger">Add Burger</button>
+        </div>
       </div>
     </form>
   </div>
